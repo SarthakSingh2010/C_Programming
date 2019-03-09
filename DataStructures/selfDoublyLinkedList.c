@@ -6,7 +6,7 @@ struct node
 	struct node *next;
 	struct node *prev;
 };
-void createList(struct node **head,int val)
+void createList(struct node **head,int val) //O(n)
 {
 	struct node *newnode,*temp;
 	newnode=(struct node*)malloc(sizeof(struct node));
@@ -26,7 +26,7 @@ void createList(struct node **head,int val)
 		newnode->prev=temp;
 	}
 }
-void displayList(struct node **head)
+void displayList(struct node **head) //O(n)
 {
 	struct node *temp;
 	temp=*head;
@@ -37,7 +37,7 @@ void displayList(struct node **head)
 	}
 	printf("NULL\n");
 }
-void displayListReverse(struct node **head)
+void displayListReverse(struct node **head) //O(n)
 {
 	struct node *temp;
 	temp=*head;
@@ -50,7 +50,7 @@ void displayListReverse(struct node **head)
 	}
 	printf("NULL\n");
 }
-void insertbeg(struct node **head,int val)
+void insertbeg(struct node **head,int val) //O(1)
 {
 	struct node *newnode;
 	newnode=(struct node*)malloc(sizeof(struct node));
@@ -67,7 +67,7 @@ void insertbeg(struct node **head,int val)
 		
 	}
 }
-int lengthOfList(struct node **head)
+int lengthOfList(struct node **head) //O(n)
 {
 	struct node *temp;
 	int c=0;
@@ -79,7 +79,7 @@ int lengthOfList(struct node **head)
 	}
 	return c;
 }
-void insertpos(struct node **head,int val,int pos)
+void insertpos(struct node **head,int val,int pos) //O(p)
 {
 	struct node *newnode,*temp,*temp1;
 	int i;
@@ -103,7 +103,7 @@ void insertpos(struct node **head,int val,int pos)
 		newnode->prev=temp;
 	}
 }
-void deletebeg(struct node **head)
+void deletebeg(struct node **head) //O(1)
 {
 	if(*head==NULL)
 	printf("Deletion not possible\n");
@@ -116,7 +116,7 @@ void deletebeg(struct node **head)
 		free(temp);
 	}
 }
-void deleteend(struct node **head)
+void deleteend(struct node **head) //O(n)
 {
 	if(*head==NULL)
 	{
@@ -132,7 +132,7 @@ void deleteend(struct node **head)
 		free(temp);
 	}
 }
-void deletepos(struct node **head,int pos)
+void deletepos(struct node **head,int pos) //O(p)
 {
 	int i;
 	struct node *temp;
@@ -153,7 +153,7 @@ void deletepos(struct node **head,int pos)
 		free(temp);
 	}
 }
-main()
+int main()
 {
 	int choice,val,pos;
 	struct node *head=NULL;
@@ -202,4 +202,5 @@ main()
 				break;
 		}
 	}while(choice!=10);
+	return 0;
 }
